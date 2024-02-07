@@ -92,5 +92,52 @@ export class GameBoard {
         }
     }
 
-   
+    placeRandomShip() {
+        const shipsToPlace = [
+            { length: 5, quantity: 1 },
+            { length: 4, quantity: 1 },
+            { length: 3, quantity: 2 },
+            { length: 2, quantity: 1 }
+        ];
+    
+        for (const ship of shipsToPlace) {
+            for (let i = 0; i < ship.quantity; i++) {
+                let isValidPlacement = false;
+                let coord, position;
+    
+                while (!isValidPlacement) {
+                    coord = [Math.floor(Math.random() * this.size), Math.floor(Math.random() * this.size)];
+                    position = Math.random() < 0.5 ? 'x' : 'y';
+    
+                    if (position === 'x') {
+                        if (coord[1] + ship.length - 1 < this.size) {
+                            isValidPlacement = true;
+                        }
+                    } else {
+                        if (coord[0] + ship.length - 1 < this.size) {
+                            isValidPlacement = true;
+                        }
+                    }
+    
+                    if (isValidPlacement) {
+                        // Check if the chosen cells are already occupied
+                        for (let j = 0; j < ship.length; j++) {
+                            let row = position === 'x' ? coord[0] : coord[0] + j;
+                            let col = position === 'x' ? coord[1] + j : coord[1];
+                            let index = this.findIndex(this.board, [row, col]);
+                            if (this.objList[index].ship !== null) {
+                                isValidPlacement = false;
+                                break;
+                            }
+                        }
+                    }
+                }
+    
+                // Place the ship if placement is valid
+                if (isValidPlacement) {
+                    this.placeShip(coord, ship.length, position);
+                }
+            }
+        }
+    }    
 }
