@@ -1,8 +1,8 @@
 import { Ship } from "./ship"
 
 export class GameBoard {
-    constructor(x) {
-        this.size = x
+    constructor() {
+        this.size = 10
         this.board = this.createBoard()
         this.objList = this.buildObjList(this.board)
     }
@@ -69,13 +69,6 @@ export class GameBoard {
             return true
         }
         return false
-    }
-
-    randomGenratedCords() {
-        const x = Math.floor(Math.random() * this.boardSize)
-        const y = Math.floor(Math.random() * this.boardSize)
-
-        return { x,y }
     }
 
     allShipSunk() {
