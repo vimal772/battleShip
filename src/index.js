@@ -1,3 +1,2 @@
 import './style.css';
-
-alert('Template working')
+import { Ship } from './ship';
