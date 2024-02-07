@@ -15,7 +15,8 @@
     width: 500px;
 }
 
-.cell {
+.p1-cell,
+.p2-cell {
     border: 2px solid gray;
     width: 45px;
     height: 40px;
@@ -27,4 +28,12 @@
 
 .hidden-ship {
     background-color: yellow;
+}
+
+.hit-ship {
+    background-color: red;
+}
+
+.hit-missed {
+    background-color: rgb(138, 235, 82);
 }
