@@ -54,23 +54,23 @@ const gameLoop = () => {
         })
     })
 
-    while(humanBoard.allShipSunk() !== false && computerBoard.allShipSunk() !== false) {
-        human.activeTurn =true
-        human.sendAttack()
-        // computerBoard.refreshGrid()
-        human.activeTurn = false
+    // while(humanBoard.allShipSunk() !== false && computerBoard.allShipSunk() !== false) {
+    //     human.activeTurn =true
+    //     human.sendAttack()
+    //     // computerBoard.refreshGrid()
+    //     human.activeTurn = false
 
-        bot.activeTurn = true
-        bot.sendAttack()
-        bot.activeTurn = false
-    }
+    //     bot.activeTurn = true
+    //     bot.sendAttack()
+    //     bot.activeTurn = false
+    // }
 
-    if(humanBoard.allShipSunk() === true) {
-        console.log('computer wins');
-    }
-    if(computerBoard.allShipSunk() === true) {
-        console.log('player wins')
-    }
+    // if(humanBoard.allShipSunk() === true) {
+    //     console.log('computer wins');
+    // }
+    // if(computerBoard.allShipSunk() === true) {
+    //     console.log('player wins')
+    // }
 } 
 
 const startBtn = document.querySelector('.start')

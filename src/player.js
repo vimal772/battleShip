@@ -25,8 +25,7 @@ export const player = (enemyGame) => {
         if(index) {
             enemyGame.receiveAttack(index)
         }else {
-            const random = randomIndex(enemyGame) 
-            console.log(random);
+            const random = randomIndex(enemyGame)
             enemyGame.receiveAttack(random)
         }
     }
