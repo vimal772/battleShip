@@ -25,6 +25,18 @@ module.exports = {
         test: /\.(csv|tsv)$/i,
         use: ['csv-loader'],
       },
+      {
+        test: /\.(jpeg|jpg)$/,
+        use: [
+          {
+            loader: 'file-loader', // or 'url-loader'
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/', // or any other path where you want your images to be copied
+            },
+          },
+        ],
+      },
     ],
   },
 };

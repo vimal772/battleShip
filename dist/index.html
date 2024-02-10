@@ -5,11 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battle Ship</title>
 </head>
-<body>
-    <button class="start">Start</button> 
+<body background="../src/assets/images/battleShip.jpeg">
+    <div class="info-container">
+        <h1>BattleShip</h1>
+        <p>Destroy All Enemy's Ship to be Winner</p>
+        <p>Players</p>
+        <ul>
+            <li>Player</li>
+            <li>Computer</li>
+        </ul>
+        <p>Goal</p>
+        <p>Sink all of your opponents ship</p>
+        <p>SetUp</p>
+        <p>Each Ship will be Randomly Placed</p>
+        <h4>Rules</h4>
+        <ul>
+            <li>Each have one chance alternatively given</li>
+            <li>If a Ship is hit the grid will be <span>Red Color</span></li>
+            <li>Missed Means it will be <span>Green Color</span></li>
+            <li>If a Ship is Sunk it will be displayed</li>
+            <li>If all ship sunk the game Ends</li>
+        </ul>
+        <button class="start">Start</button> 
+    </div>
     <div class="container">
         <div class="p1-container"></div>
         <div class="p2-container"></div>
+    </div>
+    <div class="display-wrap">
+        <h2 class="display-msg"></h2>
     </div>
     <script src="main.js"></script>
 </body>

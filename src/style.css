@@ -1,5 +1,15 @@
-* {
-    
+* {}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.info-container {
+    position: fixed;
+    top: 0;
+    right: 10%;
+    color: white;
 }
 
 .container {
@@ -8,8 +18,10 @@
     justify-content: center;
     align-items: center;
 }
+
 .p1-container,
 .p2-container {
+    margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
     width: 500px;
@@ -26,9 +38,9 @@
     background-color: aqua;
 }
 
-.hidden-ship {
+/* .hidden-ship {
     background-color: yellow;
-}
+} */
 
 .hit-ship {
     background-color: red;
@@ -36,4 +48,8 @@
 
 .hit-missed {
     background-color: rgb(138, 235, 82);
+}
+
+.display-wrap > * {
+    margin-left: 50%;
 }

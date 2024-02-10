@@ -26,12 +26,14 @@ const gameLoop = () => {
         cell.addEventListener('click', () => {
             const clickedRow = parseInt(cell.dataset.row)
             const clickedCol = parseInt(cell.dataset.col)
+            const display = document.querySelector('.display-msg')
    
             computerBoard.receiveAttack([clickedRow, clickedCol])
             botGrid.refreshGrid(false)
 
             if (computerBoard.allShipSunk()) {
                 console.log('Player wins!');
+                display.textContent = "Player Wins!"
                 return;
             }
 
@@ -44,6 +46,7 @@ const gameLoop = () => {
                 // After bot's attack, check if all of the player's ships are sunk
                 if (humanBoard.allShipSunk()) {
                     console.log('Bot wins!');
+                    display.textContent = "Computer Wins"
                     return;
                 }
 
@@ -53,28 +56,11 @@ const gameLoop = () => {
 
         })
     })
-
-    // while(humanBoard.allShipSunk() !== false && computerBoard.allShipSunk() !== false) {
-    //     human.activeTurn =true
-    //     human.sendAttack()
-    //     // computerBoard.refreshGrid()
-    //     human.activeTurn = false
-
-    //     bot.activeTurn = true
-    //     bot.sendAttack()
-    //     bot.activeTurn = false
-    // }
-
-    // if(humanBoard.allShipSunk() === true) {
-    //     console.log('computer wins');
-    // }
-    // if(computerBoard.allShipSunk() === true) {
-    //     console.log('player wins')
-    // }
 } 
 
 const startBtn = document.querySelector('.start')
 startBtn.addEventListener('click',() => {
+    document.querySelector('.info-container').remove()
     resetGame()
     gameLoop()
 })
