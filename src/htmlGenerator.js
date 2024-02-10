@@ -1,4 +1,5 @@
 export function createInfoContainer() {
+    document.body.style.backgroundImage = "url('../src/assets/images/battleShip.jpeg')"
     // Create the info container div
     const infoContainer = document.createElement('div');
     infoContainer.classList.add('info-container');
