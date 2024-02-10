@@ -35,8 +35,9 @@ const gameLoop = () => {
             botGrid.refreshGrid(false)
 
             if (computerBoard.allShipSunk()) {
-                console.log('Player wins!');
                 display.textContent = "Player Wins!"
+                setTimeout(showMsg, 1000)
+                setTimeout(restartGame, 2000)
                 return;
             }
 
@@ -48,8 +49,9 @@ const gameLoop = () => {
 
                 // After bot's attack, check if all of the player's ships are sunk
                 if (humanBoard.allShipSunk()) {
-                    console.log('Bot wins!');
                     display.textContent = "Computer Wins"
+                    setTimeout(showMsg, 1000)
+                    setTimeout(restartGame, 2000)
                     return;
                 }
 
@@ -57,28 +59,30 @@ const gameLoop = () => {
                 bot.activeTurn = false;
             }, 1000); // Delay bot's attack for better user experience (1 second)
 
+
+            function showMsg() {
+                display.textContent = "New Game...!"
+            }
         })
     })
+
+    const restartGame = () => {
+        const container = document.querySelector('.container')
+        container.remove()
+
+        const tagDisplay = document.querySelector('.tagDisplay')
+        tagDisplay.remove()
+
+        const displayWrap = document.querySelector('.display-wrap')
+        displayWrap.remove()
+
+        createGameElements()
+        gameLoop()
+    }
 } 
 
 const startBtn = document.querySelector('.start')
 startBtn.addEventListener('click',() => {
     createGameElements()
-    resetGame()
     gameLoop()
 })
-
-const resetGame = () => {
-    const player1 = document.querySelector('p1-container')
-    const player2 = document.querySelector('p2-container')
-    if(player1) {
-        while(player1.firstChild) {
-            player1.removeChild(player1.firstChild)
-        }
-    }
-    if(player2) {
-        while(player2.firstChild) {
-            player2.removeChild(player2.firstChild)
-        }
-    }
-}

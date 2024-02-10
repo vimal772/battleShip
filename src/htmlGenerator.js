@@ -81,7 +81,10 @@ export function createInfoContainer() {
 
 export function createGameElements() {
 
-    document.querySelector('.info-container').remove()
+    const isValid = document.querySelector('.info-container')
+    if(isValid) {
+        isValid.remove()
+    }
     // Create the container divs
     const tagDisplay = document.createElement('div');
     tagDisplay.classList.add('tagDisplay');

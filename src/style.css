@@ -50,6 +50,7 @@ body {
 
 .display-wrap > * {
     margin-left: 45%;
+    color: white;
 }
 
 .tagDisplay {
