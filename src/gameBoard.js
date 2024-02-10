@@ -72,17 +72,17 @@ export class GameBoard {
     }
 
     allShipSunk() {
-        let result = false
-        for (let i=0; i<this.objList.length;i++) {
-            if(this.objList[i].ship) {
-                if(this.objList[i].ship.isSunk()) {
-                    result = true
-                }
+        for (let i = 0; i < this.objList.length; i++) {
+            // Check if the object has a ship and if that ship is not sunk
+            if (this.objList[i].ship && !this.objList[i].ship.isSunk()) {
+                // If any ship is found that is not sunk, return false immediately
+                return false;
             }
         }
-
-        return result
+        // If no ships are found that are not sunk, return true
+        return true;
     }
+    
 
     findIndex(arr, target) {
         for(let i=0;i<arr.length;i++) {
