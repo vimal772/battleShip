@@ -2,6 +2,9 @@ import './style.css';
 import { player } from './player';
 import { Grid } from './grid';
 import { GameBoard } from './gameBoard';
+import { createInfoContainer,createGameElements } from './htmlGenerator';
+
+document.body.appendChild(createInfoContainer())
 
 const gameLoop = () => {
     const humanBoard = new GameBoard()
@@ -60,7 +63,7 @@ const gameLoop = () => {
 
 const startBtn = document.querySelector('.start')
 startBtn.addEventListener('click',() => {
-    document.querySelector('.info-container').remove()
+    createGameElements()
     resetGame()
     gameLoop()
 })
