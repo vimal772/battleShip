@@ -25,18 +25,31 @@ module.exports = {
         test: /\.(csv|tsv)$/i,
         use: ['csv-loader'],
       },
-      {
-        test: /\.(jpeg|jpg)$/,
-        use: [
-          {
-            loader: 'file-loader', // or 'url-loader'
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/', // or any other path where you want your images to be copied
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.(png|jpe?g|gif)$/i,
+      //   use: [
+      //     {
+      //       loader: 'url-loader',
+      //       options: {
+      //         limit: 8192, // Convert images < 8kb to base64 strings
+      //         name: '[name].[ext]',
+      //         outputPath: 'images', // Specify the output directory for images
+      //       },
+      //     },
+      //   ],
+      // },
+      // {
+      //   test: /\.(jpeg|jpg)$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader', // or 'url-loader'
+      //       options: {
+      //         name: '[name].[ext]',
+      //         outputPath: 'images/', // or any other path where you want your images to be copied
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
 };
